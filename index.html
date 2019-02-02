@@ -1,0 +1,75 @@
+<!doctype HTML>
+<html>
+  <head>
+    <style>
+      .button_toggle_enabled {
+        color: red;
+        background-color: green;
+      }
+      .button_toggle_disabled {
+        color: green;
+        background-color: red;
+      }
+    </style>
+    
+    <script>
+      
+    </script>
+    
+  </head>
+  
+  <script>
+  </script>
+    
+  <body>
+    <script>
+      
+    </script>
+    
+    <button id='button_bluetooth' value='disabled' class='button_toggle_disabled'>
+      <span id='button_bluetooth_toggle'>Enable</span> Bluetooth
+    </button>
+    
+  </body>
+    
+  <script>
+    let bluetooth_button = get_bluetooth_button();
+    
+    get_bluetooth_button().addEventListener('pointerup', function(event) {    
+      toggle(bluetooth_button, 'button_toggle_disabled', 'button_toggle_enabled');
+    });
+    
+    function get_bluetooth_button ( ) {
+      return get_element_by_id ( 'button_bluetooth' );
+    }
+    
+    function get_element_by_id ( id ) {
+      return document.getElementById( id );
+    }
+    
+    function toggle( element ) {
+      
+      //Used for an undertermined seqeunce of toggling. 
+      for (var index = 1; index < arguments.length; index++) {
+        let argument = arguments[index];
+        
+        if(is_typeof_string_or_is_typeof_boolean( argument ) ) {
+          element.classList.toggle(argument);
+        }
+        
+        
+      }
+    }
+    
+    function is_typeof_string_or_is_typeof_boolean ( string_or_boolean ) {
+      return is_typeof_string( string_or_boolean ) || is_typeof_boolean( string_or_boolean );
+    }
+    
+    function is_typeof_boolean ( boolean ) {
+      return typeof boolean === 'boolean';
+    }
+    function is_typeof_string( string ) {
+      return typeof string === 'string';
+    }
+  </script>
+</html>
